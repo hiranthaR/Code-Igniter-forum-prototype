@@ -21,4 +21,19 @@ class Forum_Model extends CI_Model
 			->result();
 	}
 
+	public function insertAnswer($row)
+	{
+		return $this->db->insert('answers', $row);
+	}
+
+	public function updateAnswer($row, $id)
+	{
+		return $this->db->update('answers', $row, 'answer_id=' . $id);
+	}
+
+	public function deleteAnswer($id)
+	{
+		$this->db->delete('answers', array('answer_id' => $id));
+
+	}
 }

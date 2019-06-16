@@ -26,7 +26,7 @@ $questionSubjectCode = "phy";
 		var data = $('#edit-form-' + id).serializeArray();
 		data.push({name: 'id', value: id});
 		$.ajax({
-			url: './../controllers/database/forum/edit.php',
+			url: "<?php echo base_url();?>index.php/forum/updateAnswers",
 			method: 'post',
 			data: data,
 			success: function (res) {
@@ -49,7 +49,7 @@ $questionSubjectCode = "phy";
 
 	function deleteAnswer(id) {
 		$.ajax({
-			url: './../controllers/database/forum/delete.php',
+			url: "<?php echo base_url();?>index.php/forum/deleteAnswers",
 			method: 'post',
 			data: {id: id},
 			success: function (data) {
@@ -71,9 +71,6 @@ $questionSubjectCode = "phy";
 			'question_number': <?php echo $questionNumber ?>,
 			'question_subject_code': '<?php echo $questionSubjectCode ?>'
 		};
-
-		console.log(data);
-		console.log("<?php echo base_url();?>index.php/forum/getAnswers");
 
 		$.ajax({
 			url: "<?php echo base_url();?>index.php/forum/getAnswers",
@@ -97,7 +94,7 @@ $questionSubjectCode = "phy";
 			data.push({name: "question_number", value: "<?php echo $questionNumber ?>"});
 			data.push({name: "question_subject_code", value: "<?php echo $questionSubjectCode ?>"});
 			$.ajax({
-					url: './../controllers/database/forum/insert.php',
+					url: "<?php echo base_url();?>index.php/forum/insertAnswers",
 					data: data,
 					method: 'post',
 					success: function (data) {

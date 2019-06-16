@@ -12,6 +12,28 @@ class Forum extends CI_Controller
 		}
 	}
 
+	public function updateAnswers($id, $row)
+	{
+		$this->load->model('Forum_Model');
+		echo $this->Forum_Model->updateAnswer($row, $id);
+	}
+
+	public function insertAnswers($row)
+	{
+		$this->load->model('Forum_Model');
+		$id = $this->Forum_Model->insertAnswer($row);
+		$row += ['answer_id' => $id];
+
+		echo $this->createAnswer($row);
+	}
+
+	public function deleteAnswers($id)
+	{
+		$this->load->model('Forum_Model');
+		echo $this->Forum_Model->deleteAnswer($id);
+
+	}
+
 	private function createAnswer($answer)
 	{
 
@@ -30,21 +52,21 @@ class Forum extends CI_Controller
 		//render if owner or admin delete function
 //    only answer owner or admin can delete the answer replay
 		if ($username == $owner || $role == 'moderator') {
-			$delete = "<img src='./../icons/delete.png' onclick='deleteAnswer(" . $answerID . ");' alt='delete' style='height: 18px;margin:auto 10px;width: 18px;float: right'>";
+			$delete = "<img src='" . base_url() . "assests/icons/delete.png' onclick='deleteAnswer(" . $answerID . ");' alt='delete' style='height: 18px;margin:auto 10px;width: 18px;float: right'>";
 		}
 
 		$edit = "";
 		//render if owner edit function
 		//only owner can edit the answer
 		if ($username == $owner) {
-			$edit = "<img src='./../icons/edit.png' onclick='showHideBand(" . $answerID . ");' alt='edit' style='height: 18px;margin:auto 10px;width: 18px;float: right'>";
+			$edit = "<img src='" . base_url() . "assests/icons/edit.png' onclick='showHideBand(" . $answerID . ");' alt='edit' style='height: 18px;margin:auto 10px;width: 18px;float: right'>";
 		}
 
 		$answerView = "<div class='answer-box' id='answer-box-" . $answerID . "'>
 <div class='answer-box-answer' id='answer-box-answer-text-" . $answerID . "'>" . $answerText . "</div>
 <div class='answer-box-user-band'>
 
-<img src='./../icons/user.png' alt='user' style='height: 18px;width: 18px;float: left'>
+<img src='" . base_url() . "assests/icons/user.png' alt='user' style='height: 18px;width: 18px;float: left'>
 <a href='#' style='color: white;text-decoration: none;font-weight: bold'>
 <span style='margin-left: 3px;'>" . $owner . "</span>
 </a>
@@ -54,17 +76,17 @@ class Forum extends CI_Controller
 
 <a href='#' style='color: white;'>
 <span style='margin-left: 3px;margin-right: 15px;float: right'>0</span>
-<img src='./../icons/chat.png' alt='user' style='height: 18px;width: 18px;float: right'>
+<img src='" . base_url() . "assests/icons/chat.png' alt='user' style='height: 18px;width: 18px;float: right'>
 </a>
 
 <a href='#' style='color: white;'>
 <span style='margin-left: 3px;margin-right: 10px;float: right'>" . $dislikes . "</span>
-<img src='./../icons/dislike.png' alt='user' style='height: 18px;width: 18px;float: right'>
+<img src='" . base_url() . "assests/icons/dislike.png' alt='user' style='height: 18px;width: 18px;float: right'>
 </a>
 
 <a href='#' style='color: white;'>
 <span style='margin-left: 3px;margin-right: 10px;float: right'>" . $likes . "</span>
-<img src='./../icons/like.png' alt='user' style='height: 18px;width: 18px;float: right'>
+<img src='" . base_url() . "assests/icons/like.png' alt='user' style='height: 18px;width: 18px;float: right'>
 </a>
 
 </div>
