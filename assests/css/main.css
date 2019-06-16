@@ -1,0 +1,113 @@
+body{
+    background-color: #454545;
+    margin: 0;
+    padding: 0;
+}
+
+.forms{
+    border: #7f7f7f 2px solid;
+    background-color: #2f2f2f;
+    padding: 20px;
+}
+
+.form-input{
+    background-color: transparent;
+    color: white;
+    border: 1px #8f8f8f solid;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.form-button{
+    background-color: #8f8f8f;
+    color: #ffffff;
+    height: 35px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: relative;
+    color: white;
+    display: inline-block;
+    cursor: help;
+    /*border-bottom: 1px dotted black;*/
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.help-link{
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.help-box{
+    color: white;
+    text-align: center;
+    border: #7f7f7f 2px solid;
+    background-color: #2f2f2f;
+    padding: 5px;
+    cursor: help;
+}
+
+.nav-bar{
+    height: 60px;
+    width: 100%;
+    background-color: #111111;
+    margin-bottom: 7px;
+    overflow: hidden;
+}
+
+.nav-bar-title{
+    color: white;
+    font-size: 40px;
+    float: left;
+    font-weight: bolder;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0px;
+    font-family: "Courier 10 Pitch", serif;
+}
+
+.nav-bar-icon{
+    float: right;
+    height: 35px;
+    width: 35px;
+    position: relative;
+    top: 50%;
+    margin-right: 10px;
+    transform: translateY(-50%);
+}
+
+.nav-bar-username{
+    position: relative;
+    top: 50%;
+    font-family: "Courier 10 Pitch", serif;
+    margin-right: 5px;
+    font-weight: bold;
+    transform: translateY(-20%);
+    font-size: 22px;
+    float: right;
+    color: #ffffff;
+}
