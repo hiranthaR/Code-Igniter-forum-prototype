@@ -9,14 +9,12 @@
 class Pages extends CI_Controller
 {
 
-	public function views($page = 'home')
+	public function views($page = 'login', $data = null)
 	{
 
 		if (!file_exists(APPPATH . 'views/pages/' . $page . ".php")) {
 			show_404();
 		}
-
-		$data['title'] = base_url();
 
 		$this->load->view('templates/header');
 		$this->load->view('pages/' . $page, $data);

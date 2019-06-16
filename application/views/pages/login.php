@@ -1,6 +1,6 @@
 <div>
 	<!--    simple form to logging from varies permission levels-->
-	<form action="<?php echo base_url('auth/login') ?>" method="post" class="forms"
+	<form action="<?php echo base_url() ?>index.php/auth/login" method="post" class="forms"
 		  style="width: 300px;text-align: center;margin: 10px auto auto auto"
 		  name="login-form">
 		<br>
